@@ -1,155 +1,75 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" data-theme="midnight" data-build="a1b2c3d4">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>여의도 노래방 정보 블로그 | 브루탈 스트리트</title>
-    <meta name="description" content="여의도 노래방 업소별 가격・시스템・위치 데이터를 기반으로 한 심층 분석. 2025년도 객관적 비교와 전문가 해설을 제공합니다.">
-    <meta name="keywords" content="여의도 노래방, 여의도 노래방 정보, 여의도 노래방 추천, 여의도 코인노래방, 여의도 가요방, 서울 노래방">
-    <link rel="canonical" href="https://t3b06-yd-kb-info-1.vercel.app/blog/">
-    <meta name="bpaas-design-system" content="brutalist-avantgarde">
-    <meta name="bpaas-design-theme" content="kr-neon-void">
-    <!-- OG / Twitter -->
-    <meta property="og:title" content="여의도 노래방 정보 블로그 | 브루탈 스트리트">
-    <meta property="og:description" content="여의도 노래방 12곳의 가격, 시스템, 위치 데이터를 비교 분석한 심층 리포트. 2025년 최신 데이터 기반.">
-    <meta property="og:type" content="article">
-    <meta property="og:url" content="https://t3b06-yd-kb-info-1.vercel.app/blog/">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="여의도 노래방 정보 블로그 | 브루탈 스트리트">
-    <meta name="twitter:description" content="여의도 노래방 12곳의 가격, 시스템, 위치 데이터를 비교 분석한 심층 리포트.">
-    <style>
-        /* ===== RESET & BASE ===== */
-        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-        html { font-size: 16px; scroll-behavior: smooth; }
-        body { 
-            font-family: 'Courier New', 'Consolas', 'Andale Mono', monospace;
-            background: #0a0a0a;
-            color: #e0e0e0;
-            line-height: 1.6;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-        /* ===== TYPOGRAPHY ===== */
-        h1, h2, h3, h4, h5, h6 { font-weight: 700; letter-spacing: -0.02em; }
-        h1 { font-size: 2.5rem; color: #ff2a6d; text-transform: uppercase; border-bottom: 4px solid #ff2a6d; padding-bottom: 0.25rem; margin-bottom: 1.5rem; }
-        h2 { font-size: 1.75rem; color: #05d9e8; margin-top: 2.5rem; margin-bottom: 1rem; border-left: 6px solid #05d9e8; padding-left: 0.75rem; }
-        h3 { font-size: 1.25rem; color: #ffb800; margin-top: 1.5rem; margin-bottom: 0.75rem; }
-        p, li, blockquote { margin-bottom: 1rem; color: #c0c0c0; }
-        a { color: #05d9e8; text-decoration: underline; text-underline-offset: 3px; }
-        a:hover, a:focus { color: #ff2a6d; text-decoration: none; background: #1a1a1a; }
-        strong, b { color: #ffb800; }
-        /* ===== LAYOUT ===== */
-        .container { max-width: 1100px; margin: 0 auto; padding: 1.5rem; flex: 1; }
-        nav { background: #111; border-bottom: 2px solid #ff2a6d; padding: 1rem 1.5rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; }
-        nav .logo { font-size: 1.4rem; font-weight: bold; color: #ff2a6d; text-transform: uppercase; letter-spacing: 0.1em; }
-        nav .nav-links { list-style: none; display: flex; gap: 2rem; }
-        nav .nav-links li a { color: #e0e0e0; text-decoration: none; font-size: 0.9rem; font-weight: bold; text-transform: uppercase; transition: color 0.2s; }
-        nav .nav-links li a:hover { color: #ff2a6d; }
-        nav .nav-links li.active a { color: #ffb800; border-bottom: 2px solid #ffb800; }
-        .hamburger { display: none; flex-direction: column; cursor: pointer; gap: 4px; }
-        .hamburger span { display: block; width: 28px; height: 3px; background: #e0e0e0; transition: 0.3s; }
-        /* ===== CARD & ARTICLE ===== */
-        .article { background: #111; padding: 2rem; margin-bottom: 2rem; border: 1px solid #2a2a2a; border-radius: 2px; }
-        .article-meta { font-size: 0.85rem; color: #888; margin-bottom: 1rem; display: flex; gap: 1.5rem; }
-        .article-meta span { display: inline-block; }
-        .article-body { margin-top: 1rem; }
-        .article-body p { text-align: justify; }
-        .data-table { width: 100%; border-collapse: collapse; margin: 2rem 0; background: #1a1a1a; }
-        .data-table th, .data-table td { border: 1px solid #2a2a2a; padding: 0.75rem; text-align: left; }
-        .data-table th { background: #222; color: #05d9e8; font-weight: bold; text-transform: uppercase; }
-        .data-table td { color: #c0c0c0; }
-        .data-table tr:nth-child(even) td { background: #1e1e1e; }
-        .highlight-box { background: #1a1a1a; border-left: 6px solid #ff2a6d; padding: 1.5rem; margin: 1.5rem 0; }
-        .highlight-box p { margin-bottom: 0; color: #e0e0e0; }
-        .highlight-box strong { color: #ff2a6d; }
-        /* ===== FOOTER ===== */
-        footer { background: #111; border-top: 2px solid #2a2a2a; padding: 1.5rem; text-align: center; color: #666; font-size: 0.85rem; margin-top: auto; }
-        footer a { color: #05d9e8; }
-        /* ===== RESPONSIVE 768 ===== */
-        @media (max-width: 768px) {
-            .container { padding: 1rem; }
-            h1 { font-size: 1.75rem; }
-            h2 { font-size: 1.35rem; }
-            nav .nav-links { display: none; flex-direction: column; width: 100%; margin-top: 0.75rem; background: #0f0f0f; gap: 0; }
-            nav .nav-links li { border-bottom: 1px solid #1e1e1e; }
-            nav .nav-links li a { display: block; padding: 0.75rem 1rem; }
-            nav .nav-links.open { display: flex; }
-            .hamburger { display: flex; }
-            .article { padding: 1.25rem; }
-            .data-table th, .data-table td { padding: 0.5rem; font-size: 0.8rem; }
-        }
-        /* ===== PRINT ===== */
-        @media print {
-            body { background: #fff; color: #000; }
-            .article { background: #fff; border: 1px solid #ccc; }
-            .data-table th, .data-table td { background: #eee; color: #000; }
-            nav { border-bottom: 1px solid #000; }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>여의도 노래방 정보 블로그 — 현장 활용 팁과 상황별 선택 가이드</title>
+  <meta name="description" content="여의도 지역의 노래방을 처음 이용하시는 분들을 위한 현장 활용 팁, 상황별 선택 기준, 그리고 실제 방문 전 체크리스트를 정리했습니다.">
+  <meta name="keywords" content="여의도 노래방, 노래방 이용 팁, 노래방 선택 기준, 여의도 노래방 블로그">
+  <link rel="canonical" href="https://yeouido-song-info.program-school.online/blog.html">
+  <meta property="og:title" content="여의도 노래방 정보 블로그 — 현장 활용 팁과 상황별 선택 가이드">
+  <meta property="og:description" content="여의도 지역의 노래방을 처음 이용하시는 분들을 위한 현장 활용 팁, 상황별 선택 기준, 그리고 실제 방문 전 체크리스트를 정리했습니다.">
+  <meta property="og:url" content="https://yeouido-song-info.program-school.online/blog.html">
 </head>
 <body>
+  <header>
+    <div class="logo"><a href="/">여의도노래방</a></div>
     <nav>
-        <div class="logo">브루탈 스트리트</div>
-        <ul class="nav-links" id="navLinks">
-            <li><a href="/">홈</a></li>
-            <li><a href="/list/">업체 목록</a></li>
-            <li class="active"><a href="/blog/">블로그</a></li>
-            <li><a href="/info/">정보</a></li>
-        </ul>
-        <div class="hamburger" id="hamburger" onclick="toggleMenu()">
-            <span></span><span></span><span></span>
-        </div>
+      <ul class="nav-list">
+        <li><a href="/intro">소개</a></li>
+        <li><a href="/guide">이용 가이드</a></li>
+        <li><a href="/faq">FAQ</a></li>
+        <li><a href="/contact">연락처</a></li>
+      </ul>
+      <div class="hamburger"><div></div><div></div><div></div></div>
     </nav>
+  </header>
 
-    <div class="container">
-        <h1>여의도 노래방 데이터 분석 리포트</h1>
-        <div class="article">
-            <div class="article-meta">
-                <span>📅 2025-04-15</span>
-                <span>📂 노래방 정보</span>
-                <span>⏱ 8분 분량</span>
-            </div>
+  <section class="hero">
+    <h1>여의도 노래방, 처음이라면 꼭 읽어야 할 블로그</h1>
+    <p>여의도에 새로 온 여러분, 혹시 어디서 노래를 부를지 고민하고 있나요? 이 글에서는 초보자도 쉽게 이해할 수 있도록 “인원 규모·시간·목적별”로 나눠서 선택 포인트를 정리했어요. 실제 현장에서 겪은 작은 해프닝과 꿀팁도 함께 공유하니, 마치 친구가 옆에서 조언해 주는 느낌이 들 거예요.</p>
+  </section>
 
-            <div class="article-body">
-                <p><strong>핵심 요약:</strong> 2025년 4월 기준, 여의도 권역에서 운영 중인 노래방 12개 업소의 가격・시스템・위치 데이터를 수집・분석했습니다. 30분 기준 평균 가격은 15,000원, 코인 노래방의 경우 1곡당 평균 500원으로 집계되었습니다. 업소별 차이는 <strong>최대 2.8배</strong>에 달하며, 위치와 시설에 따라 실질 가격이 크게 변동합니다.</p>
+  <section class="section" data-v="intro">
+    <h2>1. 인원 규모에 맞는 방 선택 기준</h2>
+    <p>작은 모임(2~4명)이라면 마이크가 4개 이하인 소형 방을 노리는 것이 비용 효율적이에요. 소형 방은 보통 30분 기준 가격이 저렴하고, 방 안 분위기도 더 따뜻하게 유지됩니다. 특히 초보자일 경우 방이 작을수록 사운드가 집중돼 부른 노래가 더 잘 들리죠.</p>
+    <p>반면에 5명 이상이 모이면 중대형 방을 예약하는 게 좋습니다. 중대형 방은 마이크와 스피커가 별도로 배치돼 음량을 조절하기 편리하고, 방 안에서 움직일 공간도 충분히 확보됩니다. 여의도 중심가에는 대형 방을 갖춘 체인점이 몇 군데 있어, 사전에 온라인 예약을 하면 대기 시간을 크게 줄일 수 있어요.</p>
+    <p>10명 이상 대규모 파티를 계획 중이라면 ‘파티룸’ 옵션을 확인해 보세요. 파티룸은 조명과 특수 효과까지 제공해 분위기를 한층 끌어올려 줍니다. 하지만 최소 이용 시간과 추가 비용이 일반 방보다 높으니, 예산을 미리 계산해 두는 것이 현명합니다.</p>
+  </section>
 
-                <h2>1. 조사 방법론</h2>
-                <p>본 조사는 2025년 4월 1일부터 4월 10일까지, 여의도역・국회의사당역・샛강역 반경 800m 이내 영업 중인 노래방을 대상으로 직접 방문 조사 및 공개 데이터 크로스 체크를 진행하였습니다. 소형 프랜차이즈(코인노래방, 가요방)부터 중대형 반주점까지 포함하였으며, 가격은 주중 기본 요금 기준으로 산정하였습니다.</p>
+  <section class="section" data-v="time">
+    <h2>2. 이용 시간대별 체크 포인트</h2>
+    <p>평일 저녁(18시~21시)은 대부분의 노래방이 비교적 한산해 가격 할인 프로모션을 진행합니다. 특히 ‘해피 아워’ 라는 이름으로 30분 추가 이용권을 제공하는 곳이 많으니, 홈페이지나 앱을 미리 확인해 보세요.</p>
+    <p>주말이나 공휴일은 예약이 급속히 마감되니, 최소 일주일 전에는 온라인으로 예약을 확정하는 것이 안전합니다. 또한 주말에는 대기 인원이 길어질 수 있기 때문에, 사전에 ‘대기 알림’ 서비스를 제공하는 매장을 선택하면 편리합니다.</p>
+    <p>새벽 시간(00시~04시)에는 일부 매장에서 ‘심야 할인’이나 ‘프리미엄 방 무료 업그레이드’ 혜택을 제공하기도 합니다. 하지만 이때는 직원이 적어 서비스가 다소 제한될 수 있으니, 사전에 직접 전화로 확인하는 것이 좋습니다.</p>
+  </section>
 
-                <h2>2. 가격 데이터 종합</h2>
-                <table class="data-table">
-                    <thead>
-                        <tr>
-                            <th>업소명</th>
-                            <th>유형</th>
-                            <th>30분 기본</th>
-                            <th>1시간 기본</th>
-                            <th>코인 1곡</th>
-                            <th>주말 할증</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>여의도코인A</td><td>코인</td><td>5,000</td><td>10,000</td><td>500</td><td>+0%</td></tr>
-                        <tr><td>멜로디코인</td><td>코인</td><td>6,000</td><td>12,000</td><td>500</td><td>+20%</td></tr>
-                        <tr><td>국회노래방</td><td>가요방</td><td>8,000</td><td>15,000</td><td>—</td><td>+10%</td></tr>
-                        <tr><td>샛강반주</td><td>반주</td><td>15,000</td><td>28,000</td><td>—</td><td>+25%</td></tr>
-                        <tr><td>여의도프라임</td><td>룸</td><td>12,000</td><td>22,000</td><td>—</td><td>+15%</td></tr>
-                        <tr><td>IFC코인</td><td>코인</td><td>5,500</td><td>11,000</td><td>500</td><td>+10%</td></tr>
-                        <tr><td>더하모니</td><td>룸</td><td>18,000</td><td>33,000</td><td>—</td><td>+30%</td></tr>
-                        <tr><td>여의도가요</td><td>가요방</td><td>7,000</td><td>13,000</td><td>—</td><td>+10%</td></tr>
-                    </tbody>
-                </table>
-                <p><strong>주요 관찰점:</strong> 코인 노래방 3곳은 30분 기준 5,000~6,000원으로 가장 낮은 가격대를 형성했으며, 모든 코인 노래방이 1곡 500원이라는 통일된 가격을 유지했습니다. 반면 룸 형태의 업소는 주말 할증이 최대 30%까지 높아져, 이용 시간대 선택이 비용에 큰 영향을 미칩니다.</p>
+  <section class="section" data-v="purpose">
+    <h2>3. 목적별 최적 방 선택 팁</h2>
+    <p>생일 파티나 기념일을 축하하려면 ‘테마 방’이 있는 매장을 고르는 것이 좋습니다. 테마 방은 조명과 배경 화면을 맞춤형으로 바꿀 수 있어, 사진이나 영상을 찍기에 최적화돼 있습니다. 여의도에는 ‘레트로 파티룸’, ‘미래형 디지털 방’ 등 다양한 테마가 준비돼 있어 선택의 폭이 넓어요.</p>
+    <p>가족과 함께 방문한다면 ‘어린이용 방’이 있는 곳을 찾아보세요. 어린이용 방은 마이크에 볼륨 제한이 걸려 있어 아이들이 과도하게 소리 지르는 것을 방지하고, 색감이 부드러워 아이들이 더 편안하게 즐길 수 있습니다.</p>
+    <p>회사 회식이나 동호회 활동이라면 ‘노래방 + 룸 카페’ 형태의 복합 공간을 활용하면 좋습니다. 이곳은 회식 후에 간단히 음료를 마시며 휴식할 수 있는 라운지까지 갖추고 있어, 한 장소에서 여러 활동을 마무리할 수 있습니다.</p>
+  </section>
 
-                <h2>3. 위치 기반 접근성 분석</h2>
-                <p>여의도역 3번 출구 도보 3분 이내에 5개 업소가 집중되어 있어 가장 높은 접근성을 보였습니다. 국회의사당역 주변은 3개 업소, 샛강역 인근은 2개 업소가 운영 중이며, 이외 지역은 산재되어 있습니다. <strong>데이터 기반 판단:</strong> 역에서 멀어질수록 평균 가격이 12% 낮아지는 경향이 있으나, 시설 규모는 반비례 관계를 보입니다.</p>
+  <section class="section" data-v="tips">
+    <h2>4. 초보자를 위한 현장 활용 팁</h2>
+    <p>첫 방문이라면 ‘시작 전 체크리스트’를 한 번 만들어 보세요. 마이크와 스피커 상태, 조명 스위치 위치, 그리고 화면에 표시되는 곡 번호 체계 등을 미리 확인하면 불필요한 혼란을 줄일 수 있습니다.</p>
+    <p>노래 선택 시, 화면에 표시되는 ‘추천곡’ 리스트를 활용하면 초보자도 인기 있는 곡을 쉽게 찾을 수 있습니다. 또한 ‘노래 미리보기’를 통해 가사와 멜로디를 미리 들어보면, 실수 없이 즐거운 시간을 보낼 수 있어요.</p>
+    <p>노래방 내에서 음량을 조절하는 방법도 꼭 숙지하세요. 대부분의 방은 마이크와 스피커 각각에 별도 볼륨 다이얼이 있어, 서로 다른 부르기 스타일에 맞게 조정할 수 있습니다. 너무 크게 틀면 주변 방과 소음이 섞일 수 있으니 적당히 조절하는 것이 매너에 맞습니다.</p>
+  </section>
 
-                <div class="highlight-box">
-                    <p><strong>💡 전문가 인사이트:</strong> 30분 단위 이용 시 코인 노래방과 룸 노래방의 실질 시간당 비용 차이는 <strong>2.2배</strong>에 불과합니다. 단, 음질・공간・음료 서비스를 고려하면 목적에 따라 선택을 달리해야 합니다. 데이터 기반 추천: 2인 이하 단기 이용은 코인, 4인 이상 회식은 룸이 비용 효율적입니다.</p>
-                </div>
+  <section class="section" data-v="faq">
+    <h2>자주 묻는 질문</h2>
+    <h3>Q1. 노래방 예약은 어떻게 하면 되나요?</h3>
+    <p>대부분의 매장은 공식 홈페이지와 모바일 앱을 통해 실시간 예약이 가능합니다. 회원가입 후 로그인하면 할인 쿠폰을 자동 적용받을 수 있고, 예약 취소 정책도 쉽게 확인할 수 있습니다.</p>
+    <h3>Q2. 노래방에서 제공되는 음료는 어떤 것이 있나요?</h3>
+    <p>음료는 기본적으로 물, 탄산, 과일 주스가 제공되며, 일부 매장은 ‘프리미엄 음료’ 코너를 운영해 커피와 차, 에너지 드링크 등 다양한 선택지를 마련하고 있습니다. 음료는 방당 1인당 2잔까지 무제한 이용이 가능한 경우가 많으니, 이용 전 확인해 보세요.</p>
+    <h3>Q3. 포인트 적립은 어떻게 활용할 수 있나요?</h3>
+    <p>회원 전용 포인트 시스템을 갖춘 매장은 이용 금액의 5~10%를 포인트로 적립해 줍니다. 적립된 포인트는 다음 방문 시 ‘시간 추가’ 혹은 ‘특별 방 업그레이드’에 사용할 수 있어, 장기적으로 이용할 경우 큰 혜택이 됩니다.</p>
+  </section>
 
-                <h2>4. 시스템 트렌드 (2025년 상반기)</h2>
-                <p>전체 업소 중 66%가 태블릿 리모컨 시스템을 도입했으며, 42%는 앱 연동 예약 시스템을 갖추고 있습니다. 특히 코인 노래방의 경우 100% 무인 운영 체제를 도입하여 인
+  <footer>
+    <p>&copy; 2026 여의도 노래방 정보. All rights reserved.</p>
+  </footer>
 </body>
 </html>
